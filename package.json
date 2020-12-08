@@ -1,0 +1,16 @@
+{
+  "name": "triangle-shooter",
+  "version": "0.0.5",
+  "description": "web based 2d shooter",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^3.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brady Underwood",
+  "license": "ISC"
+}

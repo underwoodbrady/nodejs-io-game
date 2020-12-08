@@ -1,0 +1,341 @@
+html,
+body {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+#signDiv {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+#signDiv .content {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#signDiv .content h1 {
+    font-size: 48px;
+    text-shadow:
+        -2px -2px 0 black,
+        2px -2px 0 black,
+        -2px 2px 0 black,
+        2px 2px 0 black;
+}
+
+#signDiv .changelog{
+    position: absolute;
+    text-align: left;
+    padding:0px 20px;
+    left: 10px;
+    top: 10px;
+    width: 230px;
+    color: white;
+    font-size:0.8em;
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+}
+
+#signDiv .changelog h3,p{
+    margin:7px 0px;
+}
+
+#signDiv .changelog h3{
+    text-decoration: underline;
+}
+
+#signDiv .changelog:hover {
+    background-color: rgba(255, 255, 255, .2);
+    transition: 0.5s;
+}
+
+
+#signDiv .classes {
+    position: absolute;
+    text-align: center;
+    width: 450px;
+    bottom: 50px;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    font-size:1.1em;
+    color: white;
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+}
+
+#signDiv .flexbox{
+    display: flex;
+    justify-content: space-around;
+}
+
+#signDiv .flexbox div{
+    margin: 0;
+    padding: 0;
+    width:100px;
+    height:100px;
+    border: 3px solid black;
+    text-align: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    color: white;
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+    
+}
+
+#signDiv .flexbox div:hover{
+    background-color: rgba(255, 255, 255, 1);
+    transition: 0.5s;
+}
+
+#signDiv .classes div:nth-child(1){
+    background: rgba(150, 150, 150, 0.7);
+
+}
+
+#signDiv-username {
+    border: 3px solid black;
+    padding: 5px 10px;
+}
+
+#signDiv-start {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 3px solid black;
+    color: white;
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+    padding: 15px 45px;
+    margin-top: 25px;
+    display: inline-block;
+    font-size: 18px;
+}
+
+#signDiv-start:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transition: 0.5s;
+}
+
+#chat-div{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 400px;
+    height: 150px;
+    background: rgba(10, 10, 10, 0.5);
+    border-radius: 10px;
+    color: white; 
+    border: 5px solid rgba(10, 10, 10, 0.5);
+    
+     /* Can't select text */
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#closebtn{
+    position: absolute;
+    text-decoration: none;
+    color:rgba(10, 10, 10, 0.5);
+    font-size:2em;
+    right:18px;
+    top:2px;
+}
+
+#openbtn{
+    position: absolute;
+    left:10px;
+    top:10px;  
+    display:none;
+}
+
+#openbtn img{
+    width:35px;
+}
+
+#chat-text {
+    height:73%;
+    overflow-y: scroll;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 15px 15px 0px 15px;
+}
+
+
+#chat-message {
+    display: flex;
+}
+
+#chat-form{
+ 
+}
+
+#chat-input {
+    width: 380px;
+    position: absolute;
+    border:none;
+    left: 5px;
+    bottom: 5px;
+    background: rgba(10, 10, 10, 0.5);
+    color: white;
+}
+
+#playerMessage {
+    flex: 1;
+}
+
+#playerName {
+    font-weight: bold;
+    padding-right: 5px;
+
+}
+
+#leaderboard {
+    width: 150px;
+    height: 260px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: rgba(10, 10, 10, 0.4);
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    border: 5px solid rgba(10, 10, 10, 0.5);
+    border-radius: 10px;
+    overflow-y: hidden;
+
+    /* Can't select text */
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.row {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+.username {
+    position: relative;
+    display: inline-block;
+    width: 75%;
+}
+
+.red-team{
+    color:red;
+}
+
+.blue-team{
+    color:blue;
+}
+
+.yellow-team{
+    color:yellow;
+}
+
+.score {
+    position: relative;
+    text-align: right;
+    display: inline-block;
+    width: 25%;
+}
+
+
+#minimap {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 150px;
+    height: 150px;
+    border: 5px solid rgba(10, 10, 10, 0.5);
+    border-radius: 5px;
+    background: rgba(10, 10, 10, 0.25);
+}
+
+.triangle {
+    height: 0px;
+    width: 0px;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 150px solid rgba(0, 0, 0, 0.25);
+}
+
+#marker {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    background: rgba(255, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+footer{
+    position: absolute;
+    display: none;
+}
+
+/* Custom Scrollbar */
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+    background: rgba(10, 10, 10, 0.25);
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(10, 10, 10, 0.50);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(10, 10, 10, 0.75);
+}
+
+@media only screen and (max-width: 950px) {
+
+    /*Hides Changelog and Moves Classes*/
+    #signDiv .changelog {
+        display: none;
+    }
+}
