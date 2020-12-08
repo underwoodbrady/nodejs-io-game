@@ -15,9 +15,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 2020;
+    port = 2020;
 }
-serv.listen(port); 
+serv.listen(port);
 
 console.log("Server started");
 //Creating list of players
@@ -81,7 +81,7 @@ var Player = function (param) {
     self.mouseAngle = 0;
     self.mouseX = 0;
     self.mouseY = 0;
-    self.maxSpd = 2;
+    self.maxSpd = 3;
     self.hp = 100;
     self.hpMax = 100;
     self.hpCooldown = 0;
@@ -366,8 +366,8 @@ var Bullet = function (param) {
     var self = Entity(param);
     self.id = Math.random();
     self.angle = param.angle;
-    self.spdX = Math.cos(param.angle / 180 * Math.PI) * 6; //6 default
-    self.spdY = Math.sin(param.angle / 180 * Math.PI) * 6; //6
+    self.spdX = Math.cos(param.angle / 180 * Math.PI) * 8;
+    self.spdY = Math.sin(param.angle / 180 * Math.PI) * 8;
     self.parent = param.parent; //parent player
     self.team = param.team;
     self.timer = 0; //time to remove
@@ -432,7 +432,7 @@ var Bullet = function (param) {
     self.getInitPack = function () {
         return {
             id: self.id,
-            team:self.team,
+            team: self.team,
             x: self.x,
             y: self.y,
         };
@@ -504,22 +504,25 @@ var Coin = function (param) {
     var self = Entity(param);
     self.id = Math.random();
     self.toRemove = false;
+    self.lastX = self.x;
+    self.lastY = self.y;
 
     self.update = function () {
         for (let i in Player.list) {
             let p = Player.list[i];
             if (self.getDistance(p) < 60) {
                 let angle = Math.atan2((self.y - p.y), (self.x - p.x));
-                let x = Math.cos(angle)*3; 
-                let y = Math.sin(angle)*3; 
-                self.x-=x;
-                self.y-=y;
+                let x = Math.cos(angle) * 3;
+                let y = Math.sin(angle) * 3;
+                self.x -= x;
+                self.y -= y;
                 if (self.getDistance(p) < 30) {
                     self.toRemove = true;
                     p.coins++;
                 }
             }
         }
+
     }
 
     self.getInitPack = function () {
@@ -551,7 +554,6 @@ Coin.getAllInitPack = function () {
         coins.push(Coin.list[i].getInitPack());
     return coins;
 }
-
 Coin.update = function () {
     var pack = [];
     for (var i in Coin.list) {
@@ -561,8 +563,13 @@ Coin.update = function () {
             delete Coin.list[i];
             removePack.coin.push(coin.id);
         }
-        pack.push(coin.getUpdatePack());
+        if(coin.x!==coin.lastX && coin.y!==coin.lastY){ //makes it so it only sends an update if the position changes
+            pack.push(coin.getUpdatePack());
+            coin.lastX=coin.x;
+            coin.lastY=coin.y;
+        }
     }
+
     return pack;
 }
 
@@ -662,7 +669,7 @@ setInterval(function () {
     removePack.player = [];
     removePack.bullet = [];
     removePack.coin = [];
-}, 1000 / 60);
+}, 1000 / 40);
 
 var spawnBarriers = function () {
     for (let i = 0; i < 500; i++) {
