@@ -503,7 +503,7 @@ setInterval(function () {
         Barrier.list[i].draw();
     drawCords();
     updateMinimap();
-}, 1000 / 40);
+}, 1000 / 60);
 
 //*** Everything to do with map***//
 

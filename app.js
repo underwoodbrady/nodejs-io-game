@@ -19,7 +19,7 @@ if (port == null || port == "") {
 }
 serv.listen(port);
 
-console.log("Server started");
+console.log("Server started at port " + port);
 //Creating list of players
 var SOCKET_LIST = {};
 
@@ -669,7 +669,7 @@ setInterval(function () {
     removePack.player = [];
     removePack.bullet = [];
     removePack.coin = [];
-}, 1000 / 40);
+}, 1000 / 60);
 
 var spawnBarriers = function () {
     for (let i = 0; i < 500; i++) {
